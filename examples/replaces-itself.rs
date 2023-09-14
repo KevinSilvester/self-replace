@@ -1,8 +1,8 @@
 use std::env::consts::EXE_EXTENSION;
+use std::path::Path;
 
 fn main() {
-    let new_executable = std::fs::read_link(std::env::current_exe().unwrap())
-        .unwrap()
+    let new_executable = Path::new(&std::env::current_exe().unwrap())
         .with_file_name("hello")
         .with_extension(EXE_EXTENSION);
 
